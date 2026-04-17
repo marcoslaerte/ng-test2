@@ -47,4 +47,13 @@ describe(PhotoFrameComponent.name, () => {
     })
   );
 
+  it(`Should display number of likes when (@Input likes) is incremented`, () => {
+    fixture.detectChanges(); // Inicia o ciclo de vida do componente
+    component.likes++;
+    fixture.detectChanges(); // Angular redesenha o DOM na tela.
+    const element: HTMLElement = fixture.nativeElement.querySelector('.like-counter'); // Capturando o template do elemento que o fixture foi associado
+    expect(element.textContent.trim()).toBe('1');
+
+  });
+
 });
