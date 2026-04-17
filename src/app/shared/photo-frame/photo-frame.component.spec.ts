@@ -56,4 +56,18 @@ describe(PhotoFrameComponent.name, () => {
 
   });
 
+  it(`Should update aria-label when (@Input likes) is incremented`, () => {
+    fixture.detectChanges();
+    component.likes++;
+    fixture.detectChanges();
+    const element: HTMLElement = fixture.nativeElement.querySelector('span');
+    expect(element.getAttribute('aria-label')).toBe('1: people liked');
+  });
+
+  it(`Should have aria-label with default (@Input likes) value`, () => {
+    fixture.detectChanges();
+    const element: HTMLElement = fixture.nativeElement.querySelector('span');
+    expect(element.getAttribute('aria-label')).toBe('0: people liked');
+  });
+
 });
